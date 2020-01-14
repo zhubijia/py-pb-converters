@@ -84,7 +84,7 @@ def pb2dict(obj):
     if not obj.IsInitialized():
         return None
     for field in obj.DESCRIPTOR.fields:
-        if not getattr(obj, field.name):
+        if not hasattr(obj, field.name):
             continue
         if not field.label == FD.LABEL_REPEATED:
             if not field.type == FD.TYPE_MESSAGE:
